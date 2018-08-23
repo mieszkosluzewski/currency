@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from api.views import AddExchangeRateView, ExchangeRateListView, ExchangeRateView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('add_exchange_rate/', AddExchangeRateView.as_view(), name='add-exchange-rate'),
+    path('exchange_rates/<pk>', ExchangeRateView.as_view(), name='exchange-rate'),
+    path('exchange_rates/', ExchangeRateListView.as_view(), name='exchange-rate-list')
 ]
